@@ -2,6 +2,7 @@
 
 namespace GertjanRoke\LaravelDbModel;
 
+use Closure;
 use GertjanRoke\LaravelDbModel\Exceptions\MissingTableNameException;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class DbModel
 {
     /**
-     * @var \Closure|\Illuminate\Database\Query\Builder|string
+     * @var Closure|Builder|string
      */
     public $table;
 
