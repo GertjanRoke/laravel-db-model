@@ -2,9 +2,9 @@
 
 namespace GertjanRoke\LaravelDbModel\Tests\Models;
 
-use GertjanRoke\LaravelDbModel\DbModel;
+use GertjanRoke\LaravelDbModel\DBModel;
 
-class ModelWithoutTableName extends DbModel
+class ModelWithoutTableName extends DBModel
 {
     //
 }

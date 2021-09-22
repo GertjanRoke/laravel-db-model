@@ -1,27 +1,29 @@
 <?php
 
-use GertjanRoke\LaravelDbModel\Exceptions\MissingTableNameException;
 use GertjanRoke\LaravelDbModel\Tests\Models\Model;
 use GertjanRoke\LaravelDbModel\Tests\Models\ModelWithMySqlConnection;
 use GertjanRoke\LaravelDbModel\Tests\Models\ModelWithoutConnection;
 use GertjanRoke\LaravelDbModel\Tests\Models\ModelWithoutTableName;
 
-it('throws an exception when no table name is set', function () {
-    ModelWithoutTableName::where('column', 1);
-})->throws(MissingTableNameException::class);
-
 it('can prefill the connection', function () {
-    $query = ModelWithoutConnection::where('column', 1);
+    $model = new ModelWithoutConnection();
 
-    expect(class_basename($query->connection))->toStartWith('SQLiteConnection');
+    expect(class_basename($model->getDB()->connection))->toStartWith('SQLiteConnection');
 
-    $query = ModelWithMySqlConnection::where('column', 1);
+    $model = new ModelWithMySqlConnection();
 
-    expect(class_basename($query->connection))->toStartWith('MySqlConnection');
+    expect(class_basename($model->getDB()->connection))->toStartWith('MySqlConnection');
 });
 
 it('can prefill the table name', function () {
-    $query = Model::where('column', 1);
+    $model = new Model();
 
-    expect($query->from)->toBe('models');
+    expect($model->getDB()->from)->toBe('models');
+});
+
+it('can make the table name from the class name', function () {
+    $model = new ModelWithoutTableName();
+
+
+    expect($model->getDB()->from)->toBe('model_without_table_names');
 });

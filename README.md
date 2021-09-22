@@ -22,9 +22,9 @@ composer require gertjanroke/laravel-db-model
 
 namespace App\Models;
 
-use GertjanRoke\LaravelDbModel\DbModel;
+use GertjanRoke\LaravelDbModel\DBModel;
 
-class Post extends DbModel
+class Post extends DBModel
 {
     public $table = 'posts';
     

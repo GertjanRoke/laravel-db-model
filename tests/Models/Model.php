@@ -2,9 +2,9 @@
 
 namespace GertjanRoke\LaravelDbModel\Tests\Models;
 
-use GertjanRoke\LaravelDbModel\DbModel;
+use GertjanRoke\LaravelDbModel\DBModel;
 
-class Model extends DbModel
+class Model extends DBModel
 {
     public $table = 'models';
 }

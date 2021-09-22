@@ -2,9 +2,9 @@
 
 namespace GertjanRoke\LaravelDbModel\Tests\Models;
 
-use GertjanRoke\LaravelDbModel\DbModel;
+use GertjanRoke\LaravelDbModel\DBModel;
 
-class ModelWithoutConnection extends DbModel
+class ModelWithoutConnection extends DBModel
 {
     public $table = 'model-without-connection';
 }

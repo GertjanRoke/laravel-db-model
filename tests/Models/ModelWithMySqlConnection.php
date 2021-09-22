@@ -2,9 +2,9 @@
 
 namespace GertjanRoke\LaravelDbModel\Tests\Models;
 
-use GertjanRoke\LaravelDbModel\DbModel;
+use GertjanRoke\LaravelDbModel\DBModel;
 
-class ModelWithMySqlConnection extends DbModel
+class ModelWithMySqlConnection extends DBModel
 {
     public $table = 'model-with-mysql-connection';
 
