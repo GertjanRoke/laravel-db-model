@@ -9,7 +9,7 @@ class ModelTableMigration
 {
     public function up()
     {
-        Schema::create('models', function(Blueprint $table) {
+        Schema::create('models', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->boolean('active')->default(false);
