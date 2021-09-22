@@ -12,6 +12,7 @@ class ModelTableMigration
         Schema::create('models', function(Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
     }

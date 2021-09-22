@@ -26,10 +26,68 @@ use GertjanRoke\LaravelDbModel\DBModel;
 
 class Post extends DBModel
 {
-    public $table = 'posts';
+    // public $table = 'posts';
     
     // public $connection = 'mysql';
 }
+```
+If no table name was given it will guess it based on the class name just like the Eloquent model those.  
+Same for the connection, if none is set it will use the default connection.
+
+## How to extend custom scopes
+It's basically the same as for Eloquent models, you would need to prefix the methods with `scope`  
+```php
+...
+
+class Post extends DBModel
+{
+    public function scopeActive()
+    {
+        $this->db->where('active', true);
+
+        return $this;
+    }
+}
+```
+
+## Some examples
+
+You can easly create short functions for basic where's or even more complex queries so you have it always in one location instead of everywhere in your code base.
+```php
+<?php
+
+namespace App\Models;
+
+use App\Models\Comment;
+use GertjanRoke\LaravelDbModel\DBModel;
+
+class Post extends DBModel
+{
+    public function scopeActive(): self
+    {
+        $this->db->where('active', true);
+
+        return $this;
+    }
+    
+    public function scopeWithLatestComment(): self
+    {
+        $postTable = $this->getTable();
+        $commentTable = (new Comment())->getTable();
+        
+        $this->db->join($commentTable, "{$commentTable}.post_id", '=', "{$postTable}.id")
+            ->addSelect("{$commentTable}.body");
+
+        return $this;
+    }
+}
+
+// Inside your controller
+$post = Post::active()->withLatestComment()->latest()->first();
+
+// Keep in mind the order of calling methods doesn't matter as long as the method before returned the builder instance.
+// Like this example will return the same result as the query above.
+$post = Post::active()->latest()->withLatestComment()->first();
 
 ```
 

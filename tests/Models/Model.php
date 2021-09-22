@@ -6,5 +6,10 @@ use GertjanRoke\LaravelDbModel\DBModel;
 
 class Model extends DBModel
 {
-    public $table = 'models';
+    public function scopeActive(): self
+    {
+        $this->db->where('active', true);
+
+        return $this;
+    }
 }

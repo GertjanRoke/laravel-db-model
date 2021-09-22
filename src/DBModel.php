@@ -50,6 +50,11 @@ class DBModel
      */
     public function __call($method, $parameters)
     {
+        $scopeMethod = (string) Str::of($method)->ucfirst()->prepend('scope');
+        if (method_exists(static::class, $scopeMethod)) {
+            return $this->$scopeMethod(...$parameters);
+        }
+
         $response = $this->db->$method(...$parameters);
 
         return ($response instanceof Builder) ? $this : $response;
