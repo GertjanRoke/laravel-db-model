@@ -1,9 +1,9 @@
 # Laravel DB Model
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/GertjanRoke/laravel-db-model.svg?style=flat-square)](https://packagist.org/packages/GertjanRoke/laravel-db-model)
+[![Latest Version on Github](https://img.shields.io/github/v/release/GertjanRoke/laravel-db-model)](https://github.com/GertjanRoke/laravel-db-model/releases)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/GertjanRoke/laravel-db-model/run-tests?label=tests)](https://github.com/GertjanRoke/laravel-db-model/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/GertjanRoke/laravel-db-model/Check%20&%20fix%20styling?label=code%20style)](https://github.com/GertjanRoke/laravel-db-model/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/GertjanRoke/laravel-db-model.svg?style=flat-square)](https://packagist.org/packages/GertjanRoke/laravel-db-model)
+[![Total Downloads](https://img.shields.io/packagist/dt/GertjanRoke/laravel-db-model)](https://packagist.org/packages/GertjanRoke/laravel-db-model)
 
 A model wrapper around the DB class to keep your code clean.
 
